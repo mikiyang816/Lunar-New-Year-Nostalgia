@@ -2,10 +2,12 @@
   const gifURL = 'https://i.giphy.com/media/Vhhe0QjNRSq9Kt5KMw/giphy.webp' 
   let xOffset = 250
   let yOffset = 250
-  let x = window.innerWidth/ 2 - xOffset
-	let y = window.innerHeight/ 2 - yOffset
+  let cx = window.innerWidth/ 2 - xOffset
+	let cy = window.innerHeight/ 2 - yOffset
+  let x = 0
+  let y = 0
   let gif
-  let angle = 0
+  let theta = 0
 
   function setup () {
     // add image element to the page
@@ -22,7 +24,10 @@
   
   function draw () {
     requestAnimationFrame(draw)
-  	y = Math.sin（angle）
+    theta += 0.02
+  	y = Math.sin(theta) * 100 + cy
+    x = cx
+    console.log (theta, y)
  	  gif.style.top = y + 'px'
   }
     
