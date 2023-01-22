@@ -1,5 +1,5 @@
 <script>
-  const gifURL = 'https://netart.rocks/images/butterfly.gif' 
+  const gifURL = 'https://i.giphy.com/media/Vhhe0QjNRSq9Kt5KMw/giphy.webp' 
  
 
   function createGif (x, y) {
@@ -14,7 +14,11 @@
   }
   
   function setup () {
-    createGif(100, 100)
+    createGif(10, 10)
+  }
+  
+  function draw () {
+    requestAnimationFrame(draw)
   }
     
   window.addEventListener('load', setup)
