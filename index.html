@@ -1,24 +1,29 @@
 <script>
   const gifURL = 'https://i.giphy.com/media/Vhhe0QjNRSq9Kt5KMw/giphy.webp' 
- 
+  let xOffset = 250
+  let yOffset = 250
+  let x = window.innerWidth/ 2 - xOffset
+	let y = window.innerHeight/ 2 - yOffset
+  let gif
+  let angle = 0
 
-  function createGif (x, y) {
+  function setup () {
     // add image element to the page
-    const gif = document.createElement('img')
+    gif = document.createElement('img')
     gif.src = gifURL + '#' + Math.random()
     document.body.appendChild(gif)
     // change img element's CSS position
     gif.style.position = 'absolute'
     gif.style.left = x + 'px'
     gif.style.top = y + 'px'
-  }
-  
-  function setup () {
-    createGif(10, 10)
+    //start the animation loop
+    draw()
   }
   
   function draw () {
     requestAnimationFrame(draw)
+  	y = Math.sin（angle）
+ 	  gif.style.top = y + 'px'
   }
     
   window.addEventListener('load', setup)
